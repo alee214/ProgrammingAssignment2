@@ -1,4 +1,4 @@
-## Put comments here that give an overall description of what your
+o## Put comments here that give an overall description of what your
 ## functions do
 
 ## Write a short comment describing this function
@@ -7,7 +7,7 @@ makeCacheMatrix <- function(x = matrix()) {
                 invs <- NULL                #inverse is set to NULL
                 set <- function(y){
                                 x <<- y
-                                inverse <<- NULL
+                                invs <<- NULL
 } 
                 get <- function()x
                 setinvs <- function(inverse)invs <<- inverse
@@ -22,13 +22,13 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## Write a short comment describing this function
 
-cacheSolve <- function(x, ...) {                #retrieve cache data
+cacheSolve <- function(x, ...) {                                  #retrieve cache data
                invs <- x$getinvs()
                 if(!is.null(invs)){
                                 message("getting cached data.")        #what is returned when NULL
                                 return(invs)                #inverse is returned
                         }
-        data <- x$get()
-        invs <- solve(data,...)                #solving for the inverse
-        x$setinvs(invs)
+                data <- x$get()
+               invs <- solve(data,...)                #solving for the inverse
+                x$setinvs(invs)
 }                #final output!!
